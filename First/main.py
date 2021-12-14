@@ -16,3 +16,5 @@ print(len(all_dict))  # გამოგვაქვს ერთმანეთ�
 
 for i in all_dict:
     print(all_dict[i], end=" ")  # ფუნქციით ვწვდებით key-ს და გამოგვაქვს Value-ს რაოდენობა
+
+
