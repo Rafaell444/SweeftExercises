@@ -1,20 +1,10 @@
 {% extends "layout.html" %}
 {% block content %}
-    <section class="section">
-        <div class="container">
+            <h1 style="font-size: 20px">Write Urls With https://</h1><br>
+
             <form method="POST" action="{{ url_for('add_link') }}">
-                <div class="field">
-                    <label class="label">Original URL</label>
-                    <div class="control">
-                        <input class="input" type="text" name="original_url">
-                    </div>
-
-                </div>
-                <div class="control">
-                    <button type="submit" class="button is-info">Shorten</button>
-                </div>
-
+                <input type="text" name="original_url">
+                <input type="submit">
             </form>
-        </div>
-    </section>
+
 {% endblock content %}
