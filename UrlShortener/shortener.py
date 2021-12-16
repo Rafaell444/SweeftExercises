@@ -60,12 +60,12 @@ class Link2(db.Model):
 
 @app.route("/")
 def home():
-    return render_template('index.html', )
+    return render_template('index.html', title = "FreeUrl")
 
 
 @app.route("/about")
 def about():
-    return render_template('about.html', title='About')
+    return render_template('about.html', title='About Us')
 
 
 @app.route('/<short_url>')
@@ -85,14 +85,14 @@ def add_link():
     db.session.add(link)
     db.session.commit()
 
-    return render_template('link_added.html', new_link=link.short_url, original_url=link.original_url)
+    return render_template('link_added.html', new_link=link.short_url, original_url=link.original_url, title="Shortened")
 
 
 @app.route("/stats")
 def stats():
     links = Link.query.all()
 
-    return render_template("stats.html", links=links)
+    return render_template("stats.html", links=links, title="Free_stats")
 
 
 @app.errorhandler(404)
@@ -132,7 +132,7 @@ def add_special_link():
 def premium():
     links2 = Link2.query.all()
 
-    return render_template("premium_stats.html", links2=links2)
+    return render_template("premium_stats.html", links2=links2, title="Prem_stats")
 
 
 if __name__ == '__main__':

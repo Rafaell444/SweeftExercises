@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends "layout.html" %}
+{% block content %}
+    {% for link2 in links %}
+        Original Url: {{ link2.original_url }} -
+        Short URL: {{ link2.short_url }} -
+        Visits: {{ link2.visits }}
+        <br>
+    {% endfor %}
+{% endblock content %}
