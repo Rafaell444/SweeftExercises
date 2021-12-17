@@ -63,6 +63,7 @@
           <option value="app.flask_migrate" />
           <option value="str.resize" />
           <option value="list.sort" />
+          <option value="typing.Iterator.__getitem__" />
         </list>
       </option>
     </inspection_tool>

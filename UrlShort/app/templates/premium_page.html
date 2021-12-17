@@ -2,8 +2,8 @@
 {% block content %}
     <h1 style="font-size: 20px">Write Urls With https://</h1><br>
 
-            <form method="POST" action="{{ url_for('add_special_link') }}">
-                <input type="text" name="spec_url" placeholder="Enter Url">
+            <form method="POST" action="{{ url_for('add_link_prem') }}">
+                <input type="text" name="original_url" placeholder="Enter Url">
                 <input type="text" name="custom_word" placeholder="Write custom word">
                 <input type="submit">
 

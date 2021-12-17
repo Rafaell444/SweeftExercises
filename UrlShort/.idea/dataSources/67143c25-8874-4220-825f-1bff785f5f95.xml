@@ -370,10 +370,10 @@
     <package id="168" parent="1" name="rtree"/>
     <package id="169" parent="1" name="rtree_i32"/>
     <table id="170" parent="2" name="link"/>
-    <table id="171" parent="2" name="link2"/>
-    <table id="172" parent="2" name="sqlite_master">
+    <table id="171" parent="2" name="sqlite_master">
       <System>1</System>
     </table>
+    <table id="172" parent="2" name="user"/>
     <argument id="173" parent="6">
       <ArgumentDirection>R</ArgumentDirection>
     </argument>
@@ -1343,6 +1343,7 @@
     <column id="494" parent="170" name="short_url">
       <Position>3</Position>
       <DataType>VARCHAR(5)|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
     <column id="495" parent="170" name="visits">
       <Position>4</Position>
@@ -1366,60 +1367,52 @@
       <ColNames>short_url</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_link_1</UnderlyingIndexName>
     </key>
-    <column id="500" parent="171" name="id">
+    <column id="500" parent="171" name="type">
+      <Position>1</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="501" parent="171" name="name">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="502" parent="171" name="tbl_name">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="503" parent="171" name="rootpage">
+      <Position>4</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="504" parent="171" name="sql">
+      <Position>5</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="505" parent="172" name="user_id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="501" parent="171" name="spec_url">
+    <column id="506" parent="172" name="username">
       <Position>2</Position>
-      <DataType>VARCHAR(512)|0s</DataType>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="502" parent="171" name="uniq_url">
+    <column id="507" parent="172" name="password_hash">
       <Position>3</Position>
-      <DataType>VARCHAR|0s</DataType>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="503" parent="171" name="visits">
+    <column id="508" parent="172" name="is_premium">
       <Position>4</Position>
-      <DataType>INTEGER|0s</DataType>
+      <DataType>BOOLEAN|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="504" parent="171" name="date_created">
-      <Position>5</Position>
-      <DataType>DATETIME|0s</DataType>
-    </column>
-    <index id="505" parent="171" name="sqlite_autoindex_link2_1">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>uniq_url</ColNames>
-      <ColumnCollations></ColumnCollations>
-      <Unique>1</Unique>
-    </index>
-    <key id="506" parent="171">
-      <ColNames>id</ColNames>
+    <key id="509" parent="172">
+      <ColNames>user_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="507" parent="171">
-      <ColNames>uniq_url</ColNames>
-      <UnderlyingIndexName>sqlite_autoindex_link2_1</UnderlyingIndexName>
-    </key>
-    <column id="508" parent="172" name="type">
-      <Position>1</Position>
-      <DataType>text|0s</DataType>
-    </column>
-    <column id="509" parent="172" name="name">
-      <Position>2</Position>
-      <DataType>text|0s</DataType>
-    </column>
-    <column id="510" parent="172" name="tbl_name">
-      <Position>3</Position>
-      <DataType>text|0s</DataType>
-    </column>
-    <column id="511" parent="172" name="rootpage">
-      <Position>4</Position>
-      <DataType>int|0s</DataType>
-    </column>
-    <column id="512" parent="172" name="sql">
-      <Position>5</Position>
-      <DataType>text|0s</DataType>
-    </column>
+    <check id="510" parent="172">
+      <Predicate>is_premium IN (0, 1)</Predicate>
+    </check>
   </database-model>
 </dataSource>
